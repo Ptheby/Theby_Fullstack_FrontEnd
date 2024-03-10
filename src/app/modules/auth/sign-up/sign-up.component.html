@@ -16,16 +16,7 @@
                 </a>
             </div>
 
-            <!-- Alert -->
-            <fuse-alert
-                class="mt-8"
-                *ngIf="showAlert"
-                [appearance]="'outline'"
-                [showIcon]="false"
-                [type]="alert.type"
-                [@shake]="alert.type === 'error'">
-                {{alert.message}}
-            </fuse-alert>
+
 
             <!-- Sign Up form -->
             <form
@@ -35,13 +26,25 @@
 
                 <!-- Name field -->
                 <mat-form-field class="w-full">
-                    <mat-label>Full name</mat-label>
+                    <mat-label>First Name</mat-label>
                     <input
-                        id="name"
+                        id="firstname"
                         matInput
-                        [formControlName]="'name'">
-                    <mat-error *ngIf="signUpForm.get('name').hasError('required')">
-                        Full name is required
+                        [formControlName]="'firstname'">
+                    <mat-error *ngIf="signUpForm.get('firstname').hasError('required')">
+                        First name is required
+                    </mat-error>
+                </mat-form-field>
+
+                <!-- Name field -->
+                <mat-form-field class="w-full">
+                    <mat-label>Last Name</mat-label>
+                    <input
+                        id="lastname"
+                        matInput
+                        [formControlName]="'lastname'">
+                    <mat-error *ngIf="signUpForm.get('lastname').hasError('required')">
+                        Last name is required
                     </mat-error>
                 </mat-form-field>
 
@@ -88,17 +91,44 @@
                     </mat-error>
                 </mat-form-field>
 
-                <!-- Company field -->
+                <!--City field -->
                 <mat-form-field class="w-full">
-                    <mat-label>Company</mat-label>
+                    <mat-label>City</mat-label>
                     <input
-                        id="company-confirm"
+                        id="city-confirm"
                         matInput
-                        [formControlName]="'company'">
+                        [formControlName]="'city'">
+                        <mat-error *ngIf="signUpForm.get('city').hasError('required')">
+                            City is required
+                        </mat-error>
+
+                </mat-form-field>
+                <!-- State field -->
+                <mat-form-field class="w-full">
+                    <mat-label>State</mat-label>
+                    <input
+                        id="state-confirm"
+                        matInput
+                        [formControlName]="'state'">
+                        <mat-error *ngIf="signUpForm.get('state').hasError('required')">
+                            State is required
+                        </mat-error>
+                </mat-form-field>
+                <!-- NPN field -->
+                <mat-form-field class="w-full">
+                    <mat-label>National Producer Number</mat-label>
+                    <input
+                        id="npn-confirm"
+                        matInput
+                        [formControlName]="'npn'">
+                        <mat-error *ngIf="signUpForm.get('npn').hasError('required')">
+                            NPN is required
+                        </mat-error>
+
                 </mat-form-field>
 
-                <!-- ToS and PP -->
-                <div class="inline-flex items-end w-full mt-1.5">
+                <!-- ToS and PP    commented out by PT 3/9/24-->
+                <!-- <div class="inline-flex items-end w-full mt-1.5">
                     <mat-checkbox
                         class="-ml-2"
                         [color]="'primary'"
@@ -114,7 +144,7 @@
                             [routerLink]="['./']">Privacy Policy
                         </a>
                     </mat-checkbox>
-                </div>
+                </div> -->
 
                 <!-- Submit button -->
                 <button
@@ -163,8 +193,7 @@
                 <div>our community</div>
             </div>
             <div class="mt-6 text-lg tracking-tight leading-6 text-gray-400">
-                Fuse helps developers to build organized and well coded dashboards full of beautiful and rich modules.
-                Join us and start building your application today.
+               This agent tool helps connect agents losing business to agents that may be able to help the customer. You gain credits by giving, in order to take. Everyone wins
             </div>
             <div class="flex items-center mt-8">
                 <div class="flex flex-0 items-center -space-x-1.5">
@@ -181,7 +210,7 @@
                         class="flex-0 w-10 h-10 rounded-full ring-4 ring-offset-1 ring-gray-800 ring-offset-gray-800 object-cover"
                         src="assets/images/avatars/male-16.jpg">
                 </div>
-                <div class="ml-4 font-medium tracking-tight text-gray-400">More than 17k people joined us, it's your turn</div>
+                <div class="ml-4 font-medium tracking-tight text-gray-400">More than 1200 agents have joined us, it's your turn</div>
             </div>
         </div>
     </div>

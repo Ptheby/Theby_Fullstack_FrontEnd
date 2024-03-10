@@ -38,7 +38,7 @@ export class UserService
      */
     get(): Observable<User>
     {
-        return this._httpClient.get<User>('api/common/user').pipe(
+        return this._httpClient.get<User>('http://localhost:3000/users/:id').pipe(
             tap((user) =>
             {
                 this._user.next(user);
@@ -53,7 +53,7 @@ export class UserService
      */
     update(user: User): Observable<any>
     {
-        return this._httpClient.patch<User>('api/common/user', {user}).pipe(
+        return this._httpClient.patch<User>('http://localhost:3000/users/:id', {user}).pipe(
             map((response) =>
             {
                 this._user.next(response);

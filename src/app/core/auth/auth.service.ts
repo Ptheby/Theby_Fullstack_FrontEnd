@@ -39,7 +39,7 @@ export class AuthService
      */
     forgotPassword(email: string): Observable<any>
     {
-        return this._httpClient.post('api/auth/forgot-password', email);
+        return this._httpClient.post('http://localhost:3000/forgot-password', email);
     }
 
     /**
@@ -49,7 +49,7 @@ export class AuthService
      */
     resetPassword(password: string): Observable<any>
     {
-        return this._httpClient.post('api/auth/reset-password', password);
+        return this._httpClient.post('http://localhost:3000/reset-password', password);
     }
 
     /**
@@ -65,7 +65,7 @@ export class AuthService
             return throwError('User is already logged in.');
         }
 
-        return this._httpClient.post('api/auth/sign-in', credentials).pipe(
+        return this._httpClient.post('http://localhost:3000/sign-in', credentials).pipe(
             switchMap((response: any) =>
             {
                 // Store the access token in the local storage
@@ -89,7 +89,7 @@ export class AuthService
     signInUsingToken(): Observable<any>
     {
         // Sign in using the token
-        return this._httpClient.post('api/auth/sign-in-with-token', {
+        return this._httpClient.post('http://localhost:3000/login', {
             accessToken: this.accessToken,
         }).pipe(
             catchError(() =>
@@ -145,7 +145,7 @@ export class AuthService
      */
     signUp(user: { name: string; email: string; password: string; company: string }): Observable<any>
     {
-        return this._httpClient.post('api/auth/sign-up', user);
+        return this._httpClient.post('http://localhost:3000/users/create_withagent', user);
     }
 
     /**
@@ -155,7 +155,7 @@ export class AuthService
      */
     unlockSession(credentials: { email: string; password: string }): Observable<any>
     {
-        return this._httpClient.post('api/auth/unlock-session', credentials);
+        return this._httpClient.post('http://localhost:3000/login', credentials);
     }
 
     /**
